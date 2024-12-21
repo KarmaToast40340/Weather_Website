@@ -1,0 +1,108 @@
+/* meteo.css */
+
+/* Style de l'image */
+#france-map {
+  width: 100%;
+  max-width: 800px;
+}
+
+/* Style du texte des coordonnées */
+#coordinates {
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+header{
+  display: flex;
+  font-size: xx-large;
+  background-color: rgba(0, 0, 0, 0.366);
+  text-align: center;
+  height: 5vh;
+  font-weight: bolder;
+  -webkit-text-fill-color:white;
+  justify-content: center;
+}
+
+body{
+  margin: 0;
+  height: 100vh;
+  background-color: rgb(175, 198, 215);
+}
+
+.menu {
+  display: flex;                /* Transformation en flexbox */
+  padding:0;                    /* Suppression des marges internes */
+  background-color: red;       /* Ajout de la couleur d'arrière-plan */
+  justify-content: space-around;/* Alignements des liens dans le menu */
+}
+.menu li {
+  list-style-type: none ;       /* Suppression des puces */
+
+}
+.menu a {
+  display:block;                /* Transformation en block */
+  min-width: 120px;             /* Largeur minimale des liens */   
+  
+  margin: 0.5rem;               /* Marges externes */
+  padding: 0.4rem 0;            /* Marges internes */
+  text-align: center;           /* Centrage du texte */   
+  background-color: #1ABC9C;    /* Arrière-plan */
+  color: #fff;                  /* Couleur du texte */
+  text-decoration: none;        /* Suppression du soulignement */
+  border: 1px solid #fff;       /* Ajout d'une bordure */
+  border-radius: 4px;           /* Arrondis des bordures */
+  
+  transition: all 1s ;          /* Ajout des effets de transition */
+}
+.menu a.actif {    
+  background-color: #000 ; 
+  color: #1ABC9C ;
+  border-color: #1ABC9C ;
+}
+.menu a:hover,
+.menu a:hover.actif{
+  background-color: #ed2794;
+  color: #ffe843;
+  border-color: #ffe843;
+}
+
+label {
+  display: block;
+  font:
+    1rem 'Fira Sans',
+    sans-serif;
+}
+
+input,
+label {
+  margin: 0.4rem 0;
+}
+
+/* Conteneur principal pour la carte et les données météo */
+#main-container {
+  display: flex; /* Aligne les éléments horizontalement */
+  justify-content: flex-start; /* Aligne à gauche (par défaut) */
+  align-items: flex-start; /* Aligne en haut */
+  gap: 20px; /* Espacement entre la carte et les données météo */
+  height: 100vh; /* Hauteur de la page */
+}
+
+/* Style pour la carte de la France */
+#france-map {
+  width: 70%; /* Réduit la largeur de la carte, vous pouvez ajuster selon votre besoin */
+  height: auto; /* Ajuste la hauteur automatiquement pour maintenir le ratio */
+}
+
+/* Conteneur des données météo */
+#weather-container {
+  width: 30%; /* Donne 30% de largeur à la section des données météo */
+  padding: 20px;
+  background-color: #f0f0f0; /* Ajoute un fond léger pour le contraste */
+  border-radius: 8px; /* Pour des bords arrondis */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère */
+}
+
+/* Autres styles généraux */
+#search {
+  margin: 20px 0;
+}

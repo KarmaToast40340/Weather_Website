@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <title>Meteo</title>
+    <link rel="stylesheet" type="text/css" href="./meteo.css">
+    <link rel="shortcut icon" href="./images/meteo.png" type="image/x-icon"/>
+    <script src="meteo.js"></script>
+</head>
+
+<body>
+    <header> Le site météo n°1 en France </header>
+    <script src="meteo.js"></script>
+
+    <ul class="menu">
+        <li>
+            <a href="meteo.html">Accueil</a>
+        </li>
+        <li>
+            <a>GPS</a>
+        </li>
+    </ul>
+
+    <div id="search">
+        <label for="site-search">Chercher une ville:</label>
+        <input type="search" id="site-search" name="q" />
+        <button>Search</button>
+    </div>
+
+    <div id="main-container">
+        <img src="./images/france.svg" id="france-map" alt="Carte de la France" />
+        <div id="weather-container"></div>
+    </div>
+    
+    <script src="meteo.js"></script>
+    <script src="ville.js"></script>
+</body>
+</html>
