@@ -30,79 +30,88 @@ body{
 }
 
 .menu {
-  display: flex;                /* Transformation en flexbox */
-  padding:0;                    /* Suppression des marges internes */
-  background-color: red;       /* Ajout de la couleur d'arrière-plan */
-  justify-content: space-around;/* Alignements des liens dans le menu */
+  display: flex;                
+  padding:0;                    
+  background-color: red;       
+  justify-content: space-around;
+  margin-bottom: 100px;
 }
+
 .menu li {
-  list-style-type: none ;       /* Suppression des puces */
-
+  list-style-type: none;       
+  display: flex;                
+  align-items: center;          
 }
+
 .menu a {
-  display:block;                /* Transformation en block */
-  min-width: 120px;             /* Largeur minimale des liens */   
-  
-  margin: 0.5rem;               /* Marges externes */
-  padding: 0.4rem 0;            /* Marges internes */
-  text-align: center;           /* Centrage du texte */   
-  background-color: #1ABC9C;    /* Arrière-plan */
-  color: #fff;                  /* Couleur du texte */
-  text-decoration: none;        /* Suppression du soulignement */
-  border: 1px solid #fff;       /* Ajout d'une bordure */
-  border-radius: 4px;           /* Arrondis des bordures */
-  
-  transition: all 1s ;          /* Ajout des effets de transition */
-}
-.menu a.actif {    
-  background-color: #000 ; 
-  color: #1ABC9C ;
-  border-color: #1ABC9C ;
-}
-.menu a:hover,
-.menu a:hover.actif{
-  background-color: #ed2794;
-  color: #ffe843;
-  border-color: #ffe843;
+  display: block;               
+  min-width: 120px;              
+  text-align: center;            
+  color: #fff;                 
+  text-decoration: none;       
+  font-family: fantasy;
+  font-size: large;
+  font-weight: bold;
 }
 
-label {
-  display: block;
-  font:
-    1rem 'Fira Sans',
-    sans-serif;
+.menu #search {
+  display: flex;                
+  align-items: center;          
+  margin-left: 1rem;           
 }
 
-input,
-label {
-  margin: 0.4rem 0;
+.menu #search input {
+  padding: 0.4rem;             
+  border: 1px solid #ccc;    
+  border-radius: 4px;           
+  margin-right: 0.5rem;
 }
+
+.menu #search button {
+  padding: 0.4rem 1rem;         
+  background-color: #1ABC9C;    
+  color: white;                 
+  border: 1px solid #1ABC9C;    
+  border-radius: 4px;           
+  cursor: pointer;              
+}
+
+.menu #search button:hover {
+  background-color: #16a085;    
+}
+
 
 /* Conteneur principal pour la carte et les données météo */
 #main-container {
-  display: flex; /* Aligne les éléments horizontalement */
-  justify-content: flex-start; /* Aligne à gauche (par défaut) */
-  align-items: flex-start; /* Aligne en haut */
-  gap: 20px; /* Espacement entre la carte et les données météo */
-  height: 100vh; /* Hauteur de la page */
+  display: flex; 
+  justify-content: flex-start; 
+  align-items: flex-start; 
+  gap: 10vw;
+  height: 100vh; 
 }
 
 /* Style pour la carte de la France */
 #france-map {
-  width: 70%; /* Réduit la largeur de la carte, vous pouvez ajuster selon votre besoin */
-  height: auto; /* Ajuste la hauteur automatiquement pour maintenir le ratio */
+  margin-left: 20px;
+  width: 70%; 
+  height: auto; 
 }
 
 /* Conteneur des données météo */
 #weather-container {
-  width: 30%; /* Donne 30% de largeur à la section des données météo */
+  width: 40%; 
   padding: 20px;
-  background-color: #f0f0f0; /* Ajoute un fond léger pour le contraste */
-  border-radius: 8px; /* Pour des bords arrondis */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère */
+  background-color: #f0f0f0; 
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Autres styles généraux */
 #search {
-  margin: 20px 0;
+  margin: 20px 20px;
+}
+
+#weather-image {
+  width: 600px;
+  height: 300px;
 }
