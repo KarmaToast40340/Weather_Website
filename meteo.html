@@ -6,11 +6,13 @@
     <link rel="stylesheet" type="text/css" href="./meteo.css">
     <link rel="shortcut icon" href="./images/meteo.png" type="image/x-icon"/>
     <script src="meteo.js"></script>
+    <script src="ville.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 
 <body>
     <header> Le site météo n°1 en France </header>
-    <script src="meteo.js"></script>
 
     <ul class="menu">
         <li>
@@ -26,8 +28,12 @@
         <img src="./images/france.svg" id="france-map" alt="Carte de la France" />
         <div id="weather-container"></div>
     </div>
+
+    <div id="chart-container">
+        <canvas id="temperature-chart"></canvas>
+        <button id="download-csv">Télécharger les données de températures en format CSV</button>
+
+    </div>
     
-    <script src="meteo.js"></script>
-    <script src="ville.js"></script>
 </body>
 </html>

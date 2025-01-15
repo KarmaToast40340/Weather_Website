@@ -12,98 +12,100 @@
   margin-top: 10px;
 }
 
-header{
+header {
   display: flex;
   font-size: xx-large;
   background-color: rgba(0, 0, 0, 0.366);
   text-align: center;
   height: 5vh;
   font-weight: bolder;
-  -webkit-text-fill-color:white;
+  -webkit-text-fill-color: white;
   justify-content: center;
 }
 
-body{
+body {
   margin: 0;
   height: 100vh;
-  background-color: rgb(175, 198, 215);
+  background-color: #afc6d7;
 }
 
 .menu {
-  display: flex;                
-  padding:0;                    
-  background-color: red;       
+  display: flex;
+  padding: 0;
+  background-color: red;
   justify-content: space-around;
   margin-bottom: 100px;
 }
 
 .menu li {
-  list-style-type: none;       
-  display: flex;                
-  align-items: center;          
+  list-style-type: none;
+  display: flex;
+  align-items: center;
 }
 
 .menu a {
-  display: block;               
-  min-width: 120px;              
-  text-align: center;            
-  color: #fff;                 
-  text-decoration: none;       
+  display: block;
+  min-width: 120px;
+  text-align: center;
+  color: #fff;
+  text-decoration: none;
   font-family: fantasy;
   font-size: large;
   font-weight: bold;
 }
 
 .menu #search {
-  display: flex;                
-  align-items: center;          
-  margin-left: 1rem;           
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
 }
 
 .menu #search input {
-  padding: 0.4rem;             
-  border: 1px solid #ccc;    
-  border-radius: 4px;           
+  padding: 0.4rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
   margin-right: 0.5rem;
 }
 
 .menu #search button {
-  padding: 0.4rem 1rem;         
-  background-color: #1ABC9C;    
-  color: white;                 
-  border: 1px solid #1ABC9C;    
-  border-radius: 4px;           
-  cursor: pointer;              
+  padding: 0.4rem 1rem;
+  background-color: #1ABC9C;
+  color: white;
+  border: 1px solid #1ABC9C;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 .menu #search button:hover {
-  background-color: #16a085;    
+  background-color: #16a085;
 }
-
 
 /* Conteneur principal pour la carte et les données météo */
 #main-container {
-  display: flex; 
-  justify-content: flex-start; 
-  align-items: flex-start; 
-  gap: 10vw;
-  height: 100vh; 
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 5vw;
+  height: 100vh;
+  padding: 20px;
+  margin-bottom: 10em;
 }
 
 /* Style pour la carte de la France */
 #france-map {
   margin-left: 20px;
-  width: 70%; 
-  height: auto; 
+  width: 70%;
+  height: auto;
 }
 
 /* Conteneur des données météo */
 #weather-container {
-  width: 40%; 
+  width: 40%;
   padding: 20px;
-  background-color: #f0f0f0; 
+  background-color: #f0f0f0;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px; /* Réduit l'espace entre le container météo et le graphique */
 }
 
 /* Autres styles généraux */
@@ -114,4 +116,16 @@ body{
 #weather-image {
   width: 600px;
   height: 300px;
+}
+
+/* Style pour le graphique centré */
+#chart-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto; /* Centre horizontalement */
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh; /* Ajuste la hauteur pour centrer le graphique verticalement */
 }

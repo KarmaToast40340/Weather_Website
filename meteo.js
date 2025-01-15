@@ -36,7 +36,6 @@ function displayWeather(city, weather) {
             99: "Orages avec grêle forte",
         };
         
-
         const weatherDescription = weatherCodes[weather.weathercode] || "Code météo inconnu";
 
         // Création des éléments à afficher
@@ -109,9 +108,73 @@ function displayWeather(city, weather) {
         weatherContainer.appendChild(windspeedElement);
         weatherContainer.appendChild(habits);
         weatherContainer.appendChild(imageElement);
+
+        // Créer un graphique des températures
+        displayTemperatureChart(city, weather); // Ajout de l'appel pour mettre à jour le graphique
     } else {
         weatherContainer.textContent = "Données météo indisponibles.";
     }
+}
+
+// Fonction pour afficher le graphique des températures
+function displayTemperatureChart(city, temperatureData) {
+    const ctx = document.getElementById("temperature-chart").getContext("2d");
+
+    // Si un graphique existe déjà, détruisez-le avant de créer un nouveau graphique
+    if (currentCityChart) {
+        currentCityChart.destroy();
+    }
+
+    // Utiliser les données historiques de température
+    const labels = temperatureData.time.map((date) => new Date(date).toLocaleDateString());
+    const maxTemps = temperatureData.temperature_2m_max;
+    const minTemps = temperatureData.temperature_2m_min;
+
+    // Créer un nouveau graphique
+    currentCityChart = new Chart(ctx, {
+        type: "line",
+        data: {
+            labels: labels,
+            datasets: [
+                {
+                    label: `Max Temperatures in ${city}`,
+                    data: maxTemps,
+                    borderColor: "red",
+                    backgroundColor: "rgba(255, 99, 132, 0.2)",
+                    fill: false,
+                },
+                {
+                    label: `Min Temperatures in ${city}`,
+                    data: minTemps,
+                    borderColor: "blue",
+                    backgroundColor: "rgba(54, 162, 235, 0.2)",
+                    fill: false,
+                },
+            ],
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: "top",
+                },
+            },
+            scales: {
+                x: {
+                    title: {
+                        display: true,
+                        text: "Date",
+                    },
+                },
+                y: {
+                    title: {
+                        display: true,
+                        text: "Temperature (°C)",
+                    },
+                },
+            },
+        },
+    });
 }
 
 // Fonction pour initialiser le processus
@@ -154,7 +217,6 @@ function init() {
         
         // Récupérer les données météo pour les coordonnées
         loadWeather(latitude, longitude);
-
     });
 
     // Fonction pour récupérer les données météo via l'API
@@ -162,11 +224,16 @@ function init() {
         try {
             const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true&timezone=auto`);
             const data = await response.json();
-
+    
             if (data.current_weather) {
                 const weather = data.current_weather;
-                // Affichage de la météo en utilisant la nouvelle fonction displayWeather
+                // Affichage de la météo actuelle
                 displayWeather(`Coordonnées géographiques (${lat.toFixed(5)}, ${lon.toFixed(5)})`, weather);
+    
+                // Récupérer l'historique des températures
+                const temperatureHistory = await getTemperatureHistory(lat, lon);
+                // Mettre à jour le graphique des températures avec les données historiques
+                displayTemperatureChart(`Coordonnées géographiques (${lat.toFixed(5)}, ${lon.toFixed(5)})`, temperatureHistory);
             } else {
                 displayWeather("Inconnu", null);
             }
@@ -175,6 +242,7 @@ function init() {
             displayWeather("Erreur", null);
         }
     }
+    
 
     // Recherche d'une ville et récupération des données météo
     const city = document.querySelector("#site-search").value.trim();
